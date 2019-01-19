@@ -1,11 +1,14 @@
+import Routing
 import Vapor
 import Fluent
 
 /// Register your application's routes here.
+///
+/// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
 public func routes(_ router: Router) throws {
-  // Basic "It works" example
-  router.get { req in
-    return "It works!"
+  // Basic "Hello, world!" example
+  router.get("hello") { req in
+    return "Hello, world!"
   }
   
   let acronymsController = AcronymsController()
@@ -16,4 +19,8 @@ public func routes(_ router: Router) throws {
   
   let categoriesController = CategoriesController()
   try router.register(collection: categoriesController)
+  
+  let websiteController = WebsiteController()
+  try router.register(collection: websiteController)
 }
+
